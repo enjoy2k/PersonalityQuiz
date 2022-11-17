@@ -10,6 +10,7 @@ import UIKit
 class introductionViewController: UIViewController {
 
     @IBAction func unwind(segue: UIStoryboardSegue) {} // Этот случай - исключение из правил. Возвращаясь мне не нужно выполнять никакой код. Мне просто нужно вернуться на страницу главного экрана.
+    привет
 
 }
 
