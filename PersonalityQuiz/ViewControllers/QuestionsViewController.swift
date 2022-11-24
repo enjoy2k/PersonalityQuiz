@@ -70,7 +70,6 @@ class QuestionsViewController: UIViewController {
     
 }
 
-// MARK: - Private Methods
 extension QuestionsViewController {
     private func updateUI() {
         
@@ -78,17 +77,14 @@ extension QuestionsViewController {
             stackView?.isHidden = true
         }
        
-        let currentQuestion = questions[questionIndex] // Обратился к свойству по конкретному индексу. Который сам же выставил выше. То есть, из массива с вопросами будет взята модель под индексом 0, то есть первый вопрос
-        
-        
+        let currentQuestion = questions[questionIndex]
         questionLabel.text = currentQuestion.title
        
-        let totalProgress = Float(questionIndex) / Float(questions.count) // Привожу к Float, потому что questionIndex имеет тип данных Int, а если делить Int на Int, то результат получится 0! Если же привести каждое, из двух чисел к Float, тогда результат получится с плавающей точкой! Если приводить сразу 2 свойства к Float, то внутри скобок они всё равно останутся Int! И уже результат Intа приведётся к Floatу что есть 0!
-        // ПрогрессБар, так же как слайдер имеет тип данных Float. То есть число с плавающей точкой для более точной настройки и отображения положении прогрессБара.
+        let totalProgress = Float(questionIndex) / Float(questions.count)
      
         questionProgressView.setProgress(totalProgress, animated: true)
 
-        title = "Вопрос № \(questionIndex + 1) из \(questions.count)" // Так как я унаследовал вьюКонтроллер от NavigationVC, то есть, на странице с вопросом есть НавиВС, соответственно у класса, с которым я работаю есть свойства title, в которое я так же могу передать нужное мне значение.
+        title = "Вопрос № \(questionIndex + 1) из \(questions.count)"
   
         showCurrentAnswers(for: currentQuestion.type)
     }
@@ -103,7 +99,7 @@ extension QuestionsViewController {
     private func showSingleStackView(with answers: [Answer]) {
         singleStackView.isHidden.toggle()
         
-        for (button, answer) in zip(singleButtons, answers) { //
+        for (button, answer) in zip(singleButtons, answers) {
             button.setTitle(answer.title, for: .normal)
         }
     }
@@ -126,10 +122,10 @@ extension QuestionsViewController {
     private func nextQuestion() {
         questionIndex += 1
         
-        if questionIndex < questions.count { // Если количество заданных вопросов меньше чем их всего, значит давай следующий вопрос
+        if questionIndex < questions.count {
             updateUI()
             return
         }
-        performSegue(withIdentifier: "showResult", sender: nil) // А если вопросы исчерпаны, выдавай экран с результатами теста
+        performSegue(withIdentifier: "showResult", sender: nil)
     }
 }
