@@ -73,26 +73,23 @@ class QuestionsViewController: UIViewController {
 // MARK: - Private Methods
 extension QuestionsViewController {
     private func updateUI() {
-        // Hide stacks
+        
         for stackView in [singleStackView, multipleStackView, rangedStackView] {
             stackView?.isHidden = true
         }
-        // Get current question
+       
         let currentQuestion = questions[questionIndex] // Обратился к свойству по конкретному индексу. Который сам же выставил выше. То есть, из массива с вопросами будет взята модель под индексом 0, то есть первый вопрос
         
-        // Set current question for question label
-        questionLabel.text = currentQuestion.title
         
-        // Calculate progress
+        questionLabel.text = currentQuestion.title
+       
         let totalProgress = Float(questionIndex) / Float(questions.count) // Привожу к Float, потому что questionIndex имеет тип данных Int, а если делить Int на Int, то результат получится 0! Если же привести каждое, из двух чисел к Float, тогда результат получится с плавающей точкой! Если приводить сразу 2 свойства к Float, то внутри скобок они всё равно останутся Int! И уже результат Intа приведётся к Floatу что есть 0!
         // ПрогрессБар, так же как слайдер имеет тип данных Float. То есть число с плавающей точкой для более точной настройки и отображения положении прогрессБара.
-        
-        // Set progress for question progress view
+     
         questionProgressView.setProgress(totalProgress, animated: true)
-        
-        // Set navigation title
+
         title = "Вопрос № \(questionIndex + 1) из \(questions.count)" // Так как я унаследовал вьюКонтроллер от NavigationVC, то есть, на странице с вопросом есть НавиВС, соответственно у класса, с которым я работаю есть свойства title, в которое я так же могу передать нужное мне значение.
-        // Show current answers
+  
         showCurrentAnswers(for: currentQuestion.type)
     }
     private func showCurrentAnswers(for type: ResponseType) {
