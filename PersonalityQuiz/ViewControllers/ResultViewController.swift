@@ -8,7 +8,8 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-    
+    //  Делаю 4 стэкВью с животными и их описаниями. Создаю из них аутлеты.
+    // Так же как на основном ВС создаю метод чтобы скрывал  эти стэки, а затем прописываю в этом методе логику
     
 
     override func viewDidLoad() {
