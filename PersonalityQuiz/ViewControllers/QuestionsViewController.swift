@@ -42,8 +42,11 @@ class QuestionsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        answersChosen // Передать сюда массив, чтобы после сделать выборку по наибольшему количеству совпадений. Изобрести логику. Далее убрать логику
-    }
+        guard let resultVC = segue.destination as? ResultViewController else { return }
+        resultVC.title
+            }
+//        answersChosen // Передать сюда массив, чтобы после сделать выборку по наибольшему количеству совпадений. Изобрести логику. Далее убрать логику
+    
     
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
         guard let buttonIndex = singleButtons.firstIndex(of: sender) else { return }
