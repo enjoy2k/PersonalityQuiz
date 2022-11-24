@@ -8,22 +8,15 @@
 import UIKit
 
 class ResultViewController: UIViewController {
+    
+    // Передать сюда массив с ответами [chosenAnswers]
+    // Придумать логику отбора наибольшего количества совпадений с животным, чтобы затем ->
+    // Выдать результат с описанием выбранного животного на страницу с результатами
+    // Убрать кнопку «назад на экране результата»
+    // Убрать кнопку – заглушку для перехода на экран с результатами
+    // Убрать свои комментарии до отправки дз преподу
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

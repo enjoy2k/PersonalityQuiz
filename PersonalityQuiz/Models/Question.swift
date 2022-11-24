@@ -26,7 +26,7 @@ struct Question {
                     answers: [
                        Answer(title: "Плавать", animal: .dog),
                        Answer(title: "Спать", animal: .cat),
-                       Answer(title: "Обнимать", animal: .rabbit),
+                       Answer(title: "Обниматься", animal: .rabbit),
                        Answer(title: "Есть", animal: .turtle),
                     ]
                 ),
