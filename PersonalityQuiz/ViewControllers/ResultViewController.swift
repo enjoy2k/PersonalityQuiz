@@ -8,17 +8,35 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-    //  Делаю 4 стэкВью с животными и их описаниями. Создаю из них аутлеты.
-    // Так же как на основном ВС создаю метод чтобы скрывал  эти стэки, а затем прописываю в этом методе логику
+   
+    @IBOutlet var dogResult: UIStackView!
+    @IBOutlet var catResult: UIStackView!
+    @IBOutlet var rabbitResult: UIStackView!
+    @IBOutlet var turtleResult: UIStackView!
     
-
+    var answerSummary: [Answer]!
+    
+//    for finalAnswers in answerSummary {
+//        print("the final answers is \(finalAnswers)")
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
+    }
+    
+}
+
+extension ResultViewController {
+    private func updatePetUI() {
+        for pets in [dogResult, catResult, rabbitResult, turtleResult] {
+            pets?.isHidden = true
+        }
+        // Логика такая:
+        //        Если в массиве Answer.dog >= 2 выдавай dogResult
+//        if answerSummary.first == Answer(title: , animal: .dog) && answerSummary.last == Answer(title: , animal: .dog) {
+            
+        
     }
 }
-// Передать сюда массив с ответами [chosenAnswers]
-// Придумать логику отбора наибольшего количества совпадений с животным, чтобы затем ->
-// Выдать результат с описанием выбранного животного на страницу с результатами
-// Убрать кнопку «назад на экране результата»
-// Убрать кнопку – заглушку для перехода на экран с результатами
-// Убрать свои комментарии до отправки дз преподу
+// Придумать логику отбора наибольшего количества совпадений с животным

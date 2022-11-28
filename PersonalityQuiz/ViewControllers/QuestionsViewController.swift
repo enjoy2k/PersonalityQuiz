@@ -43,10 +43,8 @@ class QuestionsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let resultVC = segue.destination as? ResultViewController else { return }
-        resultVC.title
-            }
-//        answersChosen // Передать сюда массив, чтобы после сделать выборку по наибольшему количеству совпадений. Изобрести логику. Далее убрать логику
-    
+        resultVC.answerSummary = answersChosen
+    }
     
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
         guard let buttonIndex = singleButtons.firstIndex(of: sender) else { return }
@@ -70,7 +68,6 @@ class QuestionsViewController: UIViewController {
         answersChosen.append(currentAnswers[index])
         nextQuestion()
     }
-    
 }
 
 extension QuestionsViewController {
